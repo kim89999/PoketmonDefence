@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private int wayPointCount;
-    private Transform[] wayPoints;
-    private int currentIndex = 0;
-    private EnemyMovement movement2D;
+    private int wayPointCount;              // 이동 경로 개수
+    private Transform[] wayPoints;          // 이동 경로 정보
+    private int currentIndex = 0;           // 현재 목표지점 인덱스
+    private Movement2D movement2D;       // 오브젝트 이동 제어
+    private EnemySpawner enemySpawner;      // 적의 삭제를 본인이 하지 않고 EnemySpawner에 알려서 삭제
 
-    public void Setup(Transform[] wayPoints)
+    public void Setup(EnemySpawner enemySpawner, Transform[] wayPoints)
     {
-        movement2D = GetComponent<EnemyMovement>();
+        movement2D = GetComponent<Movement2D>();
+        this.enemySpawner = enemySpawner;
 
         // 적 이동 경로 wayPoints 정보 설정
         wayPointCount = wayPoints.Length;
@@ -32,8 +34,6 @@ public class Enemy : MonoBehaviour
 
         while (true)
         {
-            //
-            //
             //
             if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.02f * movement2D.MoveSpeed)
             {
@@ -61,7 +61,16 @@ public class Enemy : MonoBehaviour
         else
         {
             // 적 오브젝트 삭제
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            OnDie();
         }
+    }
+
+    public void OnDie()
+    {
+        // EnemySpawner에서 리스트로 적 정보를 관리하기 때문에 Destroy()를 직접하지 않고
+        // EnemySpawner에게 본인이 삭제될 때 필요한 처리를 하도록 DestroyEnemy() 함수 호출
+        enemySpawner.DestroyEnemy(this);
+        // this == 나 자신 (EnemyComponent)를 뜻 함.
     }
 }
