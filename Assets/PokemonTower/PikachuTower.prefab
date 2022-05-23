@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5632967772387788628}
   m_Layer: 0
   m_Name: PikachuTower
-  m_TagString: Untagged
+  m_TagString: PikachuTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9182752786588534011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.97, y: -4.82, z: 0}
+  m_LocalPosition: {x: -5.075, y: -4.722, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 8929529062303129936}
@@ -116,10 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ced19b7c4e8e14d971865e21b48e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 9153987739684811210, guid: 5ee1203819b9e8d4f881077b110402d1, type: 3}
-  spawnPoint: {fileID: 5591075141589565151, guid: 0904899938c02504e82ea25e28ef4dfd, type: 3}
-  attackRate: 0.5
-  attackRange: 2
+  projectilePrefab: {fileID: 8507421134803163116, guid: 90623bc08b6839f4eaa25209b9b18d92, type: 3}
+  spawnPoint: {fileID: 8929529062303129936}
+  attackRate: 0.2
+  attackRange: 1.5
+  attackDamage: 20
 --- !u!1001 &3925857295294832527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 214145208765784951, guid: 0904899938c02504e82ea25e28ef4dfd, type: 3}
       propertyPath: m_Name
-      value: SpawnPoint
+      value: PikachuSpawnPoint
       objectReference: {fileID: 0}
     - target: {fileID: 5591075141589565151, guid: 0904899938c02504e82ea25e28ef4dfd, type: 3}
       propertyPath: m_RootOrder
@@ -137,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591075141589565151, guid: 0904899938c02504e82ea25e28ef4dfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1
+      value: -0.089
       objectReference: {fileID: 0}
     - target: {fileID: 5591075141589565151, guid: 0904899938c02504e82ea25e28ef4dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.78
+      value: -0.493
       objectReference: {fileID: 0}
     - target: {fileID: 5591075141589565151, guid: 0904899938c02504e82ea25e28ef4dfd, type: 3}
       propertyPath: m_LocalPosition.z

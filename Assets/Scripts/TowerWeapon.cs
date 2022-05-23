@@ -13,10 +13,14 @@ public class TowerWeapon : MonoBehaviour
     private Transform spawnPoint;                                 // 발사체 생성 위치
 
     [SerializeField]
-    private float attackRate = 0.5f;                              // 공격 속도
+    private float attackRate = 1f;                              // 공격 속도
 
     [SerializeField]
-    private float attackRange = 2.0f;                             // 공격 범위
+    private float attackRange = 3.0f;                             // 공격 범위
+
+    [SerializeField]
+    private int attackDamage = 1;                                 // 공격력
+
     private WeaponState weaponState = WeaponState.SearchTarget;    // 타워 무기의 상태
     private Transform attackTarget = null;                        // 공격 대상
     private EnemySpawner enemySpawner;                            // 게임에 존재하는 적 정보 획득용
@@ -46,7 +50,7 @@ public class TowerWeapon : MonoBehaviour
     {
         if (attackTarget != null)
         {
-            RotateToTarget(); // 타켓이 null이 아니면 타켓을 바라보도록
+            //RotateToTarget(); // 타켓이 null이 아니면 타켓을 바라보도록
         }
     }
 
@@ -112,21 +116,25 @@ public class TowerWeapon : MonoBehaviour
                 attackTarget = null;
                 ChangeState(WeaponState.SearchTarget);
                 break;
-
-
-                // 3. attackRate 시간만큼 대기
-                yield return new WaitForSeconds(attackRate);
-
-                // 4. 공격 (발사체 생성)
-                SpawnProjectile();
             }
+
+            // 3. attackRate 시간만큼 대기
+            yield return new WaitForSeconds(attackRate);
+
+            // 4. 공격 (발사체 생성)
+            SpawnProjectile();
         }
     }
 
     private void SpawnProjectile()
     {
-        Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
+        GameObject clone = Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
+
+        // 생성한 발사체에게 공격대상(attackTarget), 공격력(attackDamage) 정보 제공
+        clone.GetComponent<ProjectTile>().Setup(attackTarget, attackDamage);
     }
+
+
 }
 
 /*
@@ -134,4 +142,9 @@ public class TowerWeapon : MonoBehaviour
  * Desc
  *      : 적을 공격하는 타워 무기
  *      : 타워의 공격 대상 설정 및 발사체 생성
+ *      
+ * Functions
+ *  : ChangeState() - 코루틴을 이용한 FSM에서 상태 변경 함수
+ *  : RotateToTarget - target 방향으로 전환
+ *  : SearchTarget() - 현재 타워에 가장 근접한 적 탐색
  */

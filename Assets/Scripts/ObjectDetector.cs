@@ -19,7 +19,6 @@ public class ObjectDetector : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-
     // Update is called once per frame
     private void Update()
     {
