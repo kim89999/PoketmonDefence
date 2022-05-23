@@ -39,14 +39,32 @@ public class Enemy : MonoBehaviour
     {
         // 다음 이동 방향 설정
         NextMoveTo();
-
+        int count = 1;
         while (true)
         {
             //
             if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.02f * movement2D.MoveSpeed)
             {
+                if (count % 2 == 0)
+                {
+                    var ani = GetComponent<Animator>();
+                    ani.SetTrigger("front");
+                }
+                else if (count % 3 == 0)
+                {
+                    var ani = GetComponent<Animator>();
+                    ani.SetTrigger("back");
+                }
+                else if (count % 7 == 0)
+                {
+                    var ani = GetComponent<Animator>();
+                    ani.SetTrigger("back");
+                }
+
                 // 다음 이동 방향 설정
                 NextMoveTo();
+                count++;
+                Debug.Log(count);
             }
 
             yield return null;

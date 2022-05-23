@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
         {
             // 발사체를 target의 위치로 이동
             Vector3 direction = (target.position - transform.position).normalized;
-            movement2D.MoveTo(direction);
+            //movement2D.MoveTo(direction);
         }
         else
         {
