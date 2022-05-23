@@ -34,7 +34,7 @@ public class EnemyHP : MonoBehaviour
         currentHP -= damage;
 
         StopCoroutine("HitAlphaAnimation");
-        StartCoroutine("HitAlphaAnimaion");
+        StartCoroutine("HitAlphaAnimation");
 
         // 체력이 0이하 = 적 캐릭터 사망
         if(currentHP <= 0)

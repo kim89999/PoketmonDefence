@@ -131,7 +131,7 @@ public class TowerWeapon : MonoBehaviour
         GameObject clone = Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
 
         // 생성한 발사체에게 공격대상(attackTarget), 공격력(attackDamage) 정보 제공
-        clone.GetComponent<ProjectTile>().Setup(attackTarget, attackDamage);
+        clone.GetComponent<Projectile>().Setup(attackTarget, attackDamage);
     }
 
 

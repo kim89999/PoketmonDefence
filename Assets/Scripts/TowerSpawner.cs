@@ -41,7 +41,7 @@ public class TowerSpawner : MonoBehaviour
 
         // 선택한 타일의 위치에 타워 건설
         // random함수 -> 리스트 내 랜덤 타워 건설
-        GameObject clone = Instantiate(pokemonArray[Random.Range(0, 3)], tileTransform.position, Quaternion.identity);
+        GameObject clone = Instantiate(pokemonArray[Random.Range(0, 2)], tileTransform.position, Quaternion.identity);
 
         // 타워 무기에 enemySpawner 정보 전달
         clone.GetComponent<TowerWeapon>().Setup(enemySpawner);

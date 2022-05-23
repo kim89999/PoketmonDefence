@@ -3004,7 +3004,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 2055151224398058890, guid: 92623b7e5172e174b9a15c3837e0d2c3, type: 3}
   enemyHPSliderPrefab: {fileID: 7517057576458450025, guid: 326bbd65300df0e488d78eecf48e9b53, type: 3}
   canvasTransform: {fileID: 1458340407}
-  spawnTime: 0.5
+  spawnTime: 1
   wayPoints:
   - {fileID: 850168318}
   - {fileID: 513244575}
