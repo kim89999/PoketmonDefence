@@ -87,6 +87,13 @@ public class EnemySpawner : MonoBehaviour
         // 적이 목표지점까지 도착했을 때
         if(type == EnemyDestroyType.Arrive)
         {
+            GameObject Boss = GameObject.FindWithTag("Boss");
+            if (Boss == true)
+            {
+                // 게임 오버
+                SceneManager.LoadScene("GameOver");
+            }
+
             // 플레이어의 체력 -1
             playerHP.TakeDamage(1);
         }

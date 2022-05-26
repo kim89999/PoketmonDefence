@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - PikachuTower
   - Thunder
+  - BGM
+  - Boss
   layers:
   - Default
   - TransparentFX
