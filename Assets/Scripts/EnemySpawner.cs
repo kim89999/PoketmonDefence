@@ -49,7 +49,6 @@ public class EnemySpawner : MonoBehaviour
 
         // 현재 웨이브 시작
         StartCoroutine("SpawnEnemy");
-        Debug.Log("히히enemySpawner");
     }
 
     private IEnumerator SpawnEnemy()
