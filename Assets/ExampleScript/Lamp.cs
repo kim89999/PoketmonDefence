@@ -11,7 +11,7 @@ public class Lamp : MonoBehaviour
     {
 
     }
-
+    // Á¸³ª ±×·²½ÎÇÑ°Å
     // Update is called once per frame
     void Update()
     {
