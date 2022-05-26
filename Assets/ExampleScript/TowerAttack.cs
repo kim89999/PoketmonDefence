@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerAttack : MonoBehaviour
 {
     public GameObject bullet = null;
-    private GameObject closeEnemy = null;
+   // private GameObject closeEnemy = null;
 
     private List<GameObject> collEnemys = new List<GameObject>();
     private float fTime = 0;
