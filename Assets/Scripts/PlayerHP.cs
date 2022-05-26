@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour
 {
@@ -32,7 +33,8 @@ public class PlayerHP : MonoBehaviour
         // 체력이 0이 되면 게임오버
         if(currentHP <= 0)
         {
-            // 해당 부분 Scene전환 기능을 통해 게임오버 화면으로 전환
+            // 게임 오버
+            SceneManager.LoadScene("GameOver");
         }
     }
 
