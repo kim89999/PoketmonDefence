@@ -64,7 +64,6 @@ public class Enemy : MonoBehaviour
                 // 다음 이동 방향 설정
                 NextMoveTo();
                 count++;
-                Debug.Log(count);
             }
 
             yield return null;
